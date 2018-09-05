@@ -1,6 +1,6 @@
 function join(str, concatStr) {
 	var new_str='';
-	for(i=0;i<str.length;i++){
+	for(var i=0;i<str.length;i++){
 		if(i==str.length-1){
 			new_str += str[i];
 		}else{
