@@ -5,4 +5,3 @@ function printStars(n) {
 }
 
 
-printStars(3);

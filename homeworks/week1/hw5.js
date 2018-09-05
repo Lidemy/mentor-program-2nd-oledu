@@ -18,4 +18,3 @@ function repeat(str, times) {
 	}
 	return new_str;
 }
-
