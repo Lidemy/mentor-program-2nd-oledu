@@ -9,7 +9,8 @@
 
 ## 假設我今天去 Google 首頁搜尋框打上：JavaScri[t 並且按下 Enter，請說出從這一刻開始到我看到搜尋結果為止發生在背後的事情。
 
-
+搜尋 JavaScript 時，google 透過前端知道我們要搜尋 ”JavaScript“ ，透過 API 串接傳送給後端。
+在後端透過 google 的演算法，排列出相關網站的順序，再傳回前端，我們用瀏覽器下載瀏覽。
 
 
 ## 請列舉出 5 個 command line 指令並且說明功用
