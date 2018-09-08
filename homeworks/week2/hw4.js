@@ -13,4 +13,5 @@ function isPalindromes(str) {
   
 }
 
+console.log(isPalindromes('jigv'))
 module.exports = isPalindromes
