@@ -6,17 +6,11 @@ function add(a, b) {
 	var lArray = longerNum.split('').reverse();
 	var sArray = shorterNum.split('').reverse()
 
-	console.log(lArray);
-	console.log(sArray);
-
 	var diff = longerNum.length - shorterNum.length;
 	while(diff>0){
 		sArray.push('0');
 		diff--;
 	}
-
-	console.log(lArray);
-	console.log(sArray);
 
 	var sumArray = [];
 	for (var i = 0; i < lArray.length; i++) {
@@ -30,5 +24,5 @@ function add(a, b) {
 	}
 	return(sumArray.reverse().join(''));
 }
-console.log(add('1','999'))
+
 module.exports = add;
