@@ -7,23 +7,16 @@ function add(a, b) {
 	var sArray = shorterNum.split('').reverse()
 
 	var diff = longerNum.length - shorterNum.length;
-	while(diff>0){
+	while(diff>1){
 		sArray.push('0');
 		diff--;
 	}
-	/*
-	for (var i = 0; i < diff; i++) {
-		sArray.push('0');
-	}
-	*/
-
+	
 	var sumArray = [];
 	for (var i = 0; i < lArray.length; i++) {
 		var digitSum = parseInt(lArray[i]) + parseInt(sArray[i]);
 		sumArray.push(digitSum);
 	}
-
-	if(sumArray[sumArray.length-1]>10) sumArray.push('0');
 
 	for (var i = 0; i < sumArray.length-1; i++) {
 		sumArray[i+1] += Math.floor(sumArray[i]/10);		
@@ -32,5 +25,4 @@ function add(a, b) {
 	return(sumArray.reverse().join(''));
 }
  
-
 module.exports = add;
