@@ -3,8 +3,8 @@ function add(a, b) {
 	var shorterNum = a.length > b.length ?	b : a; 
 	var longerNum = a.length > b.length ? a : b;
 
-	lArray = longerNum.split('').reverse();
-	sArray = shorterNum.split('').reverse()
+	var lArray = longerNum.split('').reverse();
+	var sArray = shorterNum.split('').reverse()
 
 	var diff = longerNum.length - shorterNum.length;
 	for (var i = 0; i < diff; i++) {

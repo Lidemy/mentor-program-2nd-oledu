@@ -7,8 +7,8 @@ function stars(n) {
 			star.push(inner_star);
 		}
 	}
-	console.log(star);
-
+	return star;
 }
+console.log(stars(5))
 
 module.exports = stars;
