@@ -9,6 +9,5 @@ function stars(n) {
 	}
 	return star;
 }
-console.log(stars(5))
 
 module.exports = stars;

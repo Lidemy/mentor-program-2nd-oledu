@@ -3,7 +3,6 @@ function alphaSwap(str) {
 		return argument === argument.toUpperCase();
 	}
 	var strSplit = str.split('');
-	console.log(`strSplit:${strSplit}`)
 	var changedStr = [];
 	for (var i = 0; i < strSplit.length; i++) {
 		if(isUpper(strSplit[i])){
