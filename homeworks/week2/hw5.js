@@ -1,7 +1,7 @@
 function add(a, b) {
 
-	var shorterNum = a.length > b.length ?	b : a; 
-	var longerNum = a.length > b.length ? a : b;
+	var shorterNum = a.length >= b.length ?	b : a; 
+	var longerNum = a.length >= b.length ? a : b;
 
 	var lArray = longerNum.split('').reverse();
 	var sArray = shorterNum.split('').reverse()
