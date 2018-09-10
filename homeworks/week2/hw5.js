@@ -7,9 +7,15 @@ function add(a, b) {
 	var sArray = shorterNum.split('').reverse()
 
 	var diff = longerNum.length - shorterNum.length;
+	while(diff>0){
+		sArray.push('0');
+		diff--;
+	}
+	/*
 	for (var i = 0; i < diff; i++) {
 		sArray.push('0');
 	}
+	*/
 
 	var sumArray = [];
 	for (var i = 0; i < lArray.length; i++) {
