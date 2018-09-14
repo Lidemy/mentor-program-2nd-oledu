@@ -14,4 +14,3 @@ function isPalindromes(str) {
 }
 
 module.exports = isPalindromes
-console.log(isPalindromes('abca'))
