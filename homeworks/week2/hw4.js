@@ -6,7 +6,7 @@ function isPalindromes(str) {
 	for (var i = 0; i < str.length; i++) {
 		if(str[i]!=reversedStr[i]){
 			return false;
-		}else{
+		}else if(i==str.length-1){
 			return true;
 		}
 	}
@@ -14,3 +14,4 @@ function isPalindromes(str) {
 }
 
 module.exports = isPalindromes
+console.log(isPalindromes('abca'))
