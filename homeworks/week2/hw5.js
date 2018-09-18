@@ -24,5 +24,4 @@ function add(a, b) {
 	}
 	return(sumArray.reverse().join(''));
 }
-console.log(6)
 module.exports = add;
