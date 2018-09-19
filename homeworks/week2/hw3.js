@@ -6,7 +6,7 @@ function isPrime(n) {
 		case 2:
 			return true;
 			break;
-		
+			
 		default:
 			for(var i=2;i<n;i++){
 				if(n%i==0){
