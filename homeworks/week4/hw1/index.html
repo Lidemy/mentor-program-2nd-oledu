@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SimpleCaculator</title>
+  <style>
+    .contour {
+      background-color: floralwhite;
+      border: 5px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      border: 1px;
+      border-style: solid;
+      width: 500px;
+    }
+
+    .container_2 {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container_2>* {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .container {
+      margin: 10px
+    }
+
+    .button {
+      padding: 10px 30px;
+      margin: 10px;
+      display: flex;
+      justify-content: center;
+      border: 1px;
+      border-style: solid;
+      flex-grow: 1;
+      transition: 0.3s ease-in;
+
+    }
+
+    .monitor {
+      padding: 20px;
+      display: flex;
+      border: 1px;
+      border-style: solid;
+      margin: 10px;
+      display: flex;
+      justify-content: flex-end;
+      font-size: 30px
+    }
+
+    #EQU {
+      flex-grow: 2;
+    }
+
+    .button:hover {
+      background-color: navajowhite;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let num = document.querySelector('.monitor');
+      let cacString = '';
+      let cacStringTemp = '';
+      addEventListener('click', (e) => {
+        if (e.target.innerHTML === 'AC') {
+          num.innerHTML = '0';
+          cacString = '';
+          cacStringTemp = '';
+        } else if (e.target.innerHTML === '=') {
+          let answer = ans(cacString);
+          num.innerHTML = answer;
+          cacStringTemp = '';
+          cacString = '';
+        } else if (e.target.innerHTML.length === 1 && e.target.innerHTML.match(/[0-9]/)) {
+          cacStringTemp += e.target.innerHTML;
+          cacString += e.target.innerHTML;
+          num.innerHTML = cacStringTemp;
+        } else if (e.target.innerHTML.length === 1 && e.target.innerHTML.match(/[^0-9]/)) {
+          cacString += e.target.innerHTML;
+          num.innerHTML = '0';
+          cacStringTemp = '';
+        }
+      })
+    })
+
+    function ans(cacString) {
+      var cacArray = cacString.split(/[^0-9]/)
+      var symbol = cacString.match(/[^0-9]/ig)
+      console.log(cacArray);
+      console.log(symbol);
+      switch (symbol[symbol.length - 1]) {
+        case '+': return parseInt(cacArray[0]) + parseInt(cacArray[cacArray.length - 1])
+        case '-': return parseInt(cacArray[0]) - parseInt(cacArray[cacArray.length - 1])
+        case 'x': return parseInt(cacArray[0]) * parseInt(cacArray[cacArray.length - 1])
+        case '÷': return parseInt(cacArray[0]) / parseInt(cacArray[cacArray.length - 1])
+      }
+    }
+
+  </script>
+</head>
+
+<body>
+  <div class="contour">
+    <div class='container'>
+      <div class="monitor">0</div>
+      <div class="container_2">
+        <div class="container_row_1">
+          <div class='button' id="AC">AC</div>
+          <div class='button' id="DIV">÷</div>
+        </div>
+        <div class="container_row_2">
+          <div class='button' id="SEV">7</div>
+          <div class='button' id="EIG">8</div>
+          <div class='button' id="NIN">9</div>
+          <div class='button' id="MUL">x</div>
+        </div>
+        <div class="container_row_3">
+          <div class='button' id="FOU">4</div>
+          <div class='button' id="FIV">5</div>
+          <div class='button' id="SIX">6</div>
+          <div class='button' id="MIN">-</div>
+        </div>
+        <div class="container_row_4">
+          <div class='button' id="ONE">1</div>
+          <div class='button' id="TWO">2</div>
+          <div class='button' id="THR">3</div>
+          <div class='button' id="ADD">+</div>
+        </div>
+        <div class="container_row_5">
+          <div class='button' id="ZER">0</div>
+          <div class='button' id="DOT">.</div>
+          <div class='button' id="EQU">=</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
