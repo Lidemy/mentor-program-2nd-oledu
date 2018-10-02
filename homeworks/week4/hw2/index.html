@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RegistrationForm</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js"></script>
+</head>
+
+<body>
+    <div class="cover"></div>
+    <div class="container">
+        <div class="topping"></div>
+        <div class="header">從零到一：程式導師實驗計畫報名表單</div>
+        <div class="subHeader plainText">
+            詳情請參考：<a href="https://medium.com/@hulitw/mentor-program-b5f96ae1eed1">https://medium.com/@hulitw/mentor-program-b5f96ae1eed1</a>
+            <div class="subHeader plainText">記得填完表單之後還要寫信報名才算成功，兩者缺一不可！</div>
+        </div>
+        <div class="alert">*必填</div>
+        <div class="items email required">
+            電子郵件地址 <span>*</span>
+            <br>
+            <input name="email" type="email" class="email" placeholder="你的電子郵件">
+        </div>
+        <div class=" items nickname required">
+            暱稱 <span>*</span>
+            <div class="plainText">
+                該怎麼稱呼你
+            </div>
+            <input type="name" class="name" name="name" placeholder="你的暱稱">
+        </div>
+        <div class="items class required">
+            報名類型 <span>*</span>
+            <div class="class choice">
+                <input type="radio" class="class" name="class">從零到一基礎班（一個月後開始收保證金 3000，淘汰不退還，結業後兩個月內找到工作付一個月半薪水，沒工作不用付）
+                <br>
+                <input type="radio" class="class" name="class">在職工程師加強班（一個月後開始收保證金 3000，兩個月時收學費 30000，被淘汰不退還）
+            </div>
+        </div>
+
+        <div class="items career required">
+            現在的職業 <span>*</span>
+            <div class="plainText">
+                範例：學生、前端工程師、待業中、業務
+            </div>
+            <input type="" class="career" placeholder="你的回答">
+        </div>
+
+        <div class="items background requured">
+            是否有程式相關背景？ <span>*</span>
+            <div class="plainText">
+                範例：無、高中時候學過C++、學過一點網頁前端、目前在資策會上課...
+            </div>
+            <input type="text" class="background" placeholder="你的回答">
+        </div>
+
+        <div class="items others">
+            其他
+            <div class="plainText">
+                任何你想說的
+            </div>
+            <input type="text" class="background" placeholder="你的回答">
+        </div>
+        <br>
+        <input type="submit" class="submit" name="submit">
+    </div>
+</body>
+
+</html>
