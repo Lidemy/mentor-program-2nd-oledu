@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,65 +11,65 @@
       margin: 0px;
     }
 
-    .navBar{
-      position:fixed;
-      left:0px;
-      top:0px;
+    .navBar {
+      position: fixed;
+      left: 0px;
+      top: 0px;
       background-color: dimgray;
-      height:60px;
-      width:100%
+      height: 60px;
+      width: 100%
     }
 
-    .navBar div{
-      display:inline-block;
+    .navBar div {
+      display: inline-block;
       line-height: 60px
     }
 
-    .navBar_nav{
-      color:white;
+    .navBar_nav {
+      color: white;
       font-size: 30px;
-      margin:0px 10px
+      margin: 0px 10px
     }
 
-    .navBar_nav ~ div{
+    .navBar_nav~div {
       font-size: 20px;
       margin: 0px 10px
     }
 
-    .navBar_nav ~ div:hover{
-      color:white;
-      cursor:pointer
+    .navBar_nav~div:hover {
+      color: white;
+      cursor: pointer
     }
 
-    .main{
-      background-color:lightgray;
+    .main {
+      background-color: lightgray;
       margin-top: 60px;
       padding: 40px 0px;
 
     }
 
-    .main_container{
+    .main_container {
       max-width: 900px;
       padding: 0 20px;
       margin: 0 auto;
     }
 
-    .main_big{
+    .main_big {
       font-size: 70px;
       padding-top: 10px
-      }
+    }
 
-    .main_small{
+    .main_small {
       font-size: 16px;
       padding: 10px 0px;
     }
 
-    .main_button{
-      height:60px;
-      width:160px;
-      border-radius:10px;
+    .main_button {
+      height: 60px;
+      width: 160px;
+      border-radius: 10px;
       font-size: 20px;
-      background-color:darkcyan;
+      background-color: darkcyan;
       box-sizing: border-box;
       padding-top: 14px;
       padding-left: 10px;
@@ -76,65 +77,67 @@
       transition: 0.2s ease-in;
     }
 
-    .main_button:hover{
-      cursor:pointer;
-      background-color:forestgreen;
+    .main_button:hover {
+      cursor: pointer;
+      background-color: forestgreen;
       transform: scale(1.1)
     }
 
-    .content{
-      display:flex;
+    .content {
+      display: flex;
       flex-direction: row;
       justify-content: space-between;
-      padding:0px 20px;
+      padding: 0px 20px;
       margin: 0 auto;
       max-width: 900px;
 
     }
 
-    .content_container{
+    .content_container {
       width: 25%;
     }
 
-    .content_head{
+    .content_head {
       font-size: 35px;
     }
 
-    .content_body_button{
-      height:50px;
-      width:150px;
-      background-color:silver;
+    .content_body_button {
+      height: 50px;
+      width: 150px;
+      background-color: silver;
       border-radius: 10px;
       box-sizing: border-box;
       padding-top: 11px;
       padding-left: 10px;
-      color:white;
+      color: white;
       font-size: 18px;
       transition: 0.3s ease-in;
     }
 
-    .content_body_button:hover{
-      cursor:pointer;
-      background-color:forestgreen;
+    .content_body_button:hover {
+      cursor: pointer;
+      background-color: forestgreen;
     }
-    @media screen and (max-width:750px){
-      .content{
-        display:flex;
+
+    @media screen and (max-width:750px) {
+      .content {
+        display: flex;
         flex-direction: column;
-        margin:10px 0px;
+        margin: 10px 0px;
       }
-      .content_container{
+
+      .content_container {
         width: 100%;
         margin: 10px 0px;
       }
     }
 
-    .hr{
+    .hr {
       max-width: 900px;
-      margin:10px 20px 0px 20px;
+      margin: 10px 20px 0px 20px;
     }
 
-    .footer{
+    .footer {
       margin: 0 20px;
     }
   </style>
@@ -145,36 +148,43 @@
     <div class="navBar_nav">Navbar</div>
     <div>Home</div>
     <div>Link</div>
-    </div>
+  </div>
   <div class="main">
     <div class="main_container">
       <div class="main_big">Hello, world!</div>
-      <div class="main_small">This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and
-      three supporting pieces of content. Use it as a starting point to create something more unique.</div>
+      <div class="main_small">This is a template for a simple marketing or informational website. It includes a large
+        callout called a jumbotron and
+        three supporting pieces of content. Use it as a starting point to create something more unique.</div>
       <div class="main_button">Learn more >></div>
     </div>
-  
-  
+
+
   </div>
   <div class="content">
     <div class="content_container">
       <div class="content_head">Heading</div>
-      <div class="content_body">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
-      nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</div>
+      <div class="content_body">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus
+        commodo, tortor mauris condimentum
+        nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio
+        dui.</div>
       <div class="content_body_button">View details >></div>
     </div>
 
     <div class="content_container">
       <div class="content_head">Heading</div>
-      <div class="content_body">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
-      nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</div>
+      <div class="content_body">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus
+        commodo, tortor mauris condimentum
+        nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio
+        dui.</div>
       <div class="content_body_button">View details >></div>
     </div>
 
     <div class="content_container">
       <div class="content_head">Heading</div>
-      <div class="content_body">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
-      nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</div>
+      <div class="content_body">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus
+        commodo, tortor mauris condimentum
+        nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio
+        dui.</div>
       <div class="content_body_button">View details >></div>
     </div>
   </div>
@@ -182,4 +192,5 @@
   <div class="footer">© Company 2017-2018</div>
 
 </body>
+
 </html>

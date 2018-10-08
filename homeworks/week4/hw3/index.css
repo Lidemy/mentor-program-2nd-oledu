@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  background-image: url(https://i.pinimg.com/originals/3b/0e/4e/3b0e4e8e5948f51daed135c570ec3dc7.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 100px auto;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.row__window {
+  background-color: yellow;
+  width: 200px;
+  height: 150px;
+  position: relative;
+}
+
+.row~.row {
+  margin-top: 70px;
+}
+
+.shot {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 150px;
+  background: url(https://static-cdn.jtvnw.net/jtv_user_pictures/voyboy-profile_image-e770e02c3ec5a428-300x300.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+.info {
+  position: absolute;
+  background: black;
+  opacity:1;
+  width: 150px;
+  height: 50px;
+  top: 150px;
+  left: 50px;
+  padding-left: 5px;
+  color: white;
+  box-sizing: border-box;
+
+}
+
+.name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0px;
+}
+
+.status {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0px
+}
