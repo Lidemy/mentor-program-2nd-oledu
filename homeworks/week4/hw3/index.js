@@ -14,7 +14,7 @@
       console.log(previewArray);
 
       console.log(par.streams[2].channel.status);
-
+      
       for (let i = 0; i < 20; i++) {
         previewArray[i].outerHTML = `<img src=${par.streams[i].preview.large} alt="" style="width:200px;height:150px;"></img>`;
         shotArray[i].outerHTML = `<div class="shot"><img src=${par.streams[i].channel.logo} style="width:50px;height:50px;" alt=""></div>`;

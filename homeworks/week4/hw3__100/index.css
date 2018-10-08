@@ -9,23 +9,16 @@ body {
 
 .container {
   max-width: 1000px;
-  margin: 100px auto;
-}
-
-.row {
+  margin: 100px 100px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .row__window {
   width: 200px;
   height: 150px;
   position: relative;
-}
-
-.row~.row {
-  margin-top: 70px;
+  margin: 35px 20px;
 }
 
 .shot {
