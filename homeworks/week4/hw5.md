@@ -38,7 +38,7 @@
   }
 
 7. JSONP 是什麼？
-  JASONP 是一種利用 <script> 標籤的特性，讓網頁可以繞過 Same Origin Policy 來得到 response 的資料。
+  JSONP 是一種利用 <script> 標籤的特性，讓網頁可以繞過 Same Origin Policy 來得到 response 的資料。
 
 8. 要如何存取跨網域的 API？
-  透過 script 的 src 直接將資料塞進去, 這種方法就可以由多個不同網域直接取得資料, 不過寫法會有點不同, 格式要是 JSON 或 Javascript code 的格式
+  透過 script 的 src 直接將資料塞進去, 這種方法就可以由多個不同網域直接取得資料, 不過寫法會有點不同, 格式要是 JSON 或 Javascript code 的格式。
