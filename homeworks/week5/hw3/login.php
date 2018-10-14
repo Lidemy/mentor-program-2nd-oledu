@@ -1,5 +1,4 @@
 
-<?php session_start(); ?>
 <!DOCTYPE html>
   <html lang="en">
     <head>
@@ -19,6 +18,7 @@
           <br>
           <input type="submit" value="提交"> 
         </form>
+        <h1>還沒有帳號先<a href="./register.php">註冊</a></h1>
       </div>
     </div>
     
