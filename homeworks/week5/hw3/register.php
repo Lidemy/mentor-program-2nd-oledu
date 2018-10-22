@@ -42,7 +42,7 @@
         header("refresh:0;url=./login.php");
         echo '<script type="text/javascript">alert("此帳號已經註冊過ㄌ\n導入登入頁面");</script>';
     }else{
-      $sql__register = "INSERT INTO oledu__users (username, password, nickname) VALUE ('$username__register', '$password__register','$nickname__register ')";
+      $sql__register = "INSERT INTO oledu__users (username, password_hash, nickname) VALUE ('$username__register', '$password__register','$nickname__register ')";
       $conn->query($sql__register);
       header("refresh:0;url=./login.php");
       echo '<script type="text/javascript">alert("請登入後使用\n導入登入頁面");</script>';
