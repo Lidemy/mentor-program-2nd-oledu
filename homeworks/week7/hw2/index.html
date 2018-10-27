@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ToDoList</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous">
+  </script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+    crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="./index.css">
+  <script type="text/javascript" src="./index.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>TO DO LIST</h1>
+    <input type="text" name="todos" class="button" placeholder="ToDos">
+    <ul>
+      <li><span><i class="far fa-angry"></i></span> html</li>
+      <li><span><i class="far fa-angry"></i></span> css</li>
+      <li><span><i class="far fa-angry"></i></span> javascript</li>
+      <li><span><i class="far fa-angry"></i></span> webSecurity</li>
+      <li><span><i class="far fa-angry"></i></span> hotdog</li>
+    </ul>
+  </div>
+
+</body>
+
+</html>
+
+<script>
+  $('ul').on('click', 'li', function () {
+    $(this).toggleClass('done');
+  })
+
+  $('ul').on('click', 'li>span', function (e) {
+    $(this).parent().fadeOut(600, function () {
+      $(this).remove()
+    });
+    e.stopPropagation();
+  })
+
+  $('input').on('keypress', function (e) {
+    if (e.keyCode === 13) {
+      var toDos = $(this).val();
+      $(this).val('');
+    }
+    if (toDos) {
+      $('ul').append('<li><span><i class="far fa-angry"></i></span> ' + toDos + '</li>');
+    }
+  })
+
+  $('ul').on('mouseover','li>span', function () {
+    $(this).toggleClass('hover');
+  })
+
+</script>
