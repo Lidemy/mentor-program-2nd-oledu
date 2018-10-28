@@ -3,15 +3,19 @@ require_once('./conn.php');
 
 if(isset($_COOKIE['session'])){
   $session = $_COOKIE['session'];
-  $username = $_COOKIE['username'];
-  $sql__cookie = " SELECT * FROM `oledu_user_session` WHERE username = '$username' and session = '$session'";
+  // $sql__cookie = " SELECT * FROM `oledu_user_session` WHERE session = '$session'";
+  $sql__cookie = " SELECT * FROM `oledu_user_session` WHERE session = ?";
+  $stmt = $conn->prepare($sql__cookie);
+  $stmt->bind_param('s',$session);
+  $stmt->execute();
+  $result = $stmt->get_result();
   $login = false;
-  if($conn->query($sql__cookie)->num_rows>0){
+  if($result->num_rows>0){
+    $username = $result->fetch_assoc()['username'];
     $login = true;
   }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -252,7 +256,7 @@ if(isset($_COOKIE['session'])){
   $result__currentPage = $conn->query($sql__currentPage);
   if($result__currentPage->num_rows>0){
   while($row = $result__currentPage->fetch_assoc()){
-    if(trim($_COOKIE['username'])==trim($row['username'])&&$login){
+    if($username==trim($row['username'])&&$login){
   ?>
     <div class="block">
     <div class="topic__self">
@@ -285,7 +289,7 @@ if(isset($_COOKIE['session'])){
     $response = $conn->query($sql__response);
     if($response->num_rows>0){
     while($row2 = $response->fetch_assoc()){
-      if(trim($_COOKIE['username'])==trim($row2['username'])&&$login){
+      if($username==trim($row2['username'])&&$login){
     ?>
         <div class="self">
           <div class="info">
@@ -322,8 +326,9 @@ if(isset($_COOKIE['session'])){
     ?>
     <form action="./response.php" method="POST" class="response">
       <div class="info">
-        <div class="username"><?php echo htmlspecialchars($_COOKIE['username']); ?></div>
+        <div class="username"><?php echo htmlspecialchars($username); ?></div>
       </div>
+      <div class='hidden'><input name='username' type="text" value='<?php echo $username; ?>'></div>
       <div class='hidden'><input name='post_id' type="text" value='<?php echo $row['post_id']; ?>'></div>
       <textarea class="textarea" name="response" placeholder="請輸入回覆～"></textarea>
       <div class="submit"><input type="submit" value="回覆" class="button"></div>

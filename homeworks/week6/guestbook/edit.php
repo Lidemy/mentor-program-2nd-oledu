@@ -1,9 +1,16 @@
 <?php
 require_once('./conn.php');
-$sql_edit = "SELECT * from oledu_post WHERE post_id = $_POST[post_id] ";
-$post = $conn->query($sql_edit)->fetch_assoc();
-$username = $post['username'];
-$content = $post['content'];
+// $sql_edit = "SELECT * from oledu_post WHERE post_id = $_POST[post_id] ";
+$sql_edit = "SELECT * from oledu_post WHERE post_id = ?";
+$stmt = $conn->prepare($sql_edit);
+$stmt->bind_param('s',$_POST['post_id']);
+$stmt->execute();
+$result = $stmt->get_result();
+while($row=$result->fetch_assoc()){
+  $username = $row['username'];
+  $content = $row['content'];
+}
+// $post = $conn->query($sql_edit)->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
@@ -95,8 +102,8 @@ $content = $post['content'];
       <textarea class="textarea" name="content"><?php echo htmlspecialchars($content) ?></textarea>
       <input name= 'username' class="hidden" type="text" value=' <?php echo htmlspecialchars($username) ?> '> 
       <ul class="nav">
-        <li class="buttonList"><form action="edit.php" method='POST'><input name="post_id" type="text" value = "<?php echo $post['post_id']; ?>" class='hidden'><input type="submit" value="確定" class="sbutton"></form></li>
-        <li class="buttonList"><form action="delete.php" method='POST'><input type="submit" value="取消" class="sbutton"></form></li>
+        <li class="buttonList"><form action="edit.php" method='POST'><input name="post_id" type="text" value = "<?php echo $_POST['post_id']; ?>" class='hidden'><input type="submit" value="確定" class="sbutton"></form></li>
+        <li class="buttonList"><form action="cancel.php" method='POST'><input type="submit" value="取消" class="sbutton"></form></li>
       </ul>
     </form>
   </div>

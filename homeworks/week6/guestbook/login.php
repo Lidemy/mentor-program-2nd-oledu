@@ -1,5 +1,3 @@
-<?php session_start(); ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -98,22 +96,30 @@ if(isset($_POST['username'])&&isset($_POST['password'])){
   $username = $_POST['username'];
   $password = $_POST['password'];
 
-  $sql_password = "SELECT password from oledu_user WHERE username = " . "'$username'";
-  $result = $conn->query($sql_password);
+  // $sql_password = "SELECT password from oledu_user WHERE username = " . "'$username'";
+  $sql_password = "SELECT password from oledu_user WHERE username = ?";
+  $stmt = $conn->prepare($sql_password);
+  $stmt->bind_param('s',$username);
+  $stmt->execute();
+  $result = $stmt->get_result();
 
-  $hash = $conn->query($sql_password)->fetch_assoc()['password'];
-
+  // $hash = $conn->query($sql_password)->fetch_assoc()['password'];
   if($result->num_rows>0){
+    $hash = $result->fetch_assoc()['password'];
     if(password_verify($password, $hash)){
       $session = session_id();
       // $sql__session = "UPDATE `user_session` SET `session`= '$session' WHERE username = '$username'";
       setcookie("session", $session,  time()+3600*24);    
-      setcookie("username", $username,  time()+3600*24);    
+      // setcookie("username", $username,  time()+3600*24);    
       // $conn->query($sql__session);
-      $sql__session = "INSERT INTO oledu_user_session (username,session) VALUE ('$username','$session')";
-      $conn->query($sql__session);
+      // $sql__session = "INSERT INTO oledu_user_session (username,session) VALUE ('$username','$session')";
+      $sql__session = "INSERT INTO oledu_user_session (username,session) VALUE (?,?)";
+      $stmt2 = $conn->prepare($sql__session);
+      $stmt2->bind_param('ss',$username,$session);
 
-      header("refresh:0;url=./guestbook.php");          
+      $stmt2->execute();
+      // $conn->query($sql__session);
+      header("refresh:0;url=./guestbook.php");
       echo '<script type="text/javascript">alert("登入成功\n即將進入留言板");</script>';
     }else{
       header("refresh:0;url=./login.php");          
