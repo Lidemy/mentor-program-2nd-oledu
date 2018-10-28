@@ -101,14 +101,23 @@ if(isset($_POST['username'])&&isset($_POST['password'])&&isset($_POST['nickname'
   $hash = password_hash($password, PASSWORD_DEFAULT);
   $nickname = $_POST['nickname'];
 
-  $sql__username = "SELECT * from oledu_user WHERE username=" . "'$username'";
-  
-  if($conn->query($sql__username)->num_rows>0){
-    header("refresh:0;url=./login.php");
+  // $sql__username = "SELECT * from oledu_user WHERE username=" . "'$username'";
+  $sql__username = "SELECT * from oledu_user WHERE username=?";
+  $stmt = $conn->prepare($sql__username);
+  $stmt->bind_param('s',$username);
+  $stmt->execute();
+  $result = $stmt->get_result();
+  $rows = $result->num_rows;
+  if($rows>0){
+    // header("refresh:0;url=./login.php");
     echo '<script type="text/javascript">alert("此帳號已經註冊過ㄌ\n導入登入頁面");</script>';
   }else{
-    $sql__register = "INSERT INTO oledu_user (username, nickname, password) VALUE ('$username','$nickname','$hash')";
-    $conn->query($sql__register);
+    // $sql__register = "INSERT INTO oledu_user (username, nickname, password) VALUE ('$username','$nickname','$hash')";
+    $sql__register = "INSERT INTO oledu_user (username, nickname, password) VALUE (?,?,?)";
+    $stmt2 = $conn->prepare($sql__register);
+    $stmt2->bind_param('sss',$username,$nickname,$hash);
+    $stmt2->execute();
+    // $conn->query($sql__register);
     header("refresh:0;url=./login.php");
     echo '<script type="text/javascript">alert("註冊成功\n請登入後使用");</script>';
   }
