@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .container {
+      width: 760px;
+      margin: 0 auto;
+    }
+
+    span {
+      color: greenyellow;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>the current bitcoin rate is <span></span></h1>
+    <button id="btn">make request</button>
+  </div>
+</body>
+
+</html>
+
+<script>
+  var btn = document.querySelector('#btn')
+  btn.addEventListener('click', () => {
+    var url = 'https://api.github.com/users/olerdu';
+    fetch(url)
+      .then(handleErrors)
+      .then((re) => {
+        console.log(re);
+      })
+      .catch(function (err) {
+        console.log(err);
+      })
+  })
+
+  function handleErrors(request) {
+    if (!request.ok) {
+      throw Error(request.status);
+    }
+    return request;
+  }
+
+</script>
